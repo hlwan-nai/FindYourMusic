@@ -1,0 +1,171 @@
+/* 基本設定 */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ヘッダーとナビゲーション */
+header {
+    background-color: #fff;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+header nav a {
+    font-size: 1.1rem;
+    padding-bottom: 5px;
+}
+
+header nav a.active {
+    font-weight: bold;
+    border-bottom: 3px solid #3498db;
+}
+
+
+/* メインコンテンツ */
+main {
+    padding: 2rem 5%;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+/* Homeページ専用: 大きな検索フォーム */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.search-form-large {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.search-form-large input {
+    width: 60%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-form-large button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Homeページ: カードデザイン */
+.content-section h3 {
+    font-size: 1.5rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* 画面が狭い時に折り返す */
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+    flex: 1; /* 横に均等に広がる */
+    min-width: 200px; /* 最小幅 */
+}
+.card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Song/Artistページ: 小さな検索フォーム */
+.search-form-small {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.search-form-small input {
+    width: 50%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+.search-form-small button {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid #3498db;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Profileページ */
+.profile-info {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+}
+.profile-info .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 1.5rem 5%;
+    margin-top: 2rem;
+    background-color: #34495e;
+    color: #ecf0f1;
+}
