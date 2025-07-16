@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Finder - Home</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <header>
-        <h1><a href="index.html">Music Finder</a></h1>
-        <nav>
+        <h1><a href="index.html">Music Finder (This is Sample site)</a></h1>
+
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="songs.html">Songs</a></li>
@@ -17,9 +18,15 @@
                 <li><a href="profile.html">Profile</a></li>
             </ul>
         </nav>
+
+        <button id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
-    <main class="home-main">
+    <main>
         <section class="hero">
             <h2>Find Your Favorite Music</h2>
             <form class="search-form-large">
@@ -29,38 +36,43 @@
         </section>
 
         <section class="content-section">
-            <h3>新着情報</h3>
+            <h2>新着情報</h2>
             <div class="card-container">
                 <div class="card">
-                    <img src="./assets/img/n1.png" alt="Album Art">
-                    <h4>Home</h4>
-                    <p>人気アーティストの新作が登場！</p>
+                    <img src="./assets/img/c1.jpg" alt="ニューアルバム">
+                    <h4>待望のニューアルバム発売！</h4>
+                    <p>アーティスト名: Starlight Echoes</p>
                 </div>
                 <div class="card">
-                    <img src="./assets/img/n2.png" alt="Live Info">
-                    <h4>Eminem Live</h4>
-                    <p>夏の音楽フェス情報解禁！</p>
+                    <img src="./assets/img/c2.jpg" alt="音楽フェス">
+                    <h4>夏の音楽フェス開催決定！</h4>
+                    <p>豪華アーティストが集結。</p>
                 </div>
             </div>
         </section>
 
         <section class="content-section">
-            <h3>おすすめの曲</h3>
+            <h2>おすすめの曲</h2>
             <div class="card-container">
                 <div class="card">
-                    <img src="./assets/img/r1.png" alt="Song 1">
-                    <h4>ချစ် တဲ့ အကြောင်း</h4>
-                    <p>Zwe Thet Paing</p>
+                    <img src="./assets/img/a1.jpg" alt="曲のジャケットA">
+                    <h4>夜空のメロディー</h4>
+                    <p>アーティスト名: Luna Harmonia</p>
                 </div>
                 <div class="card">
-                    <img src="./assets/img/r2.png" alt="Song 2">
-                    <h4>Lighter</h4>
-                    <p>Black Meet Evil</p>
+                    <img src="./assets/img/a2.jpg" alt="曲のジャケットB">
+                    <h4>朝焼けのビート</h4>
+                    <p>アーティスト名: Solar Pulse</p>
                 </div>
                 <div class="card">
-                    <img src="https://via.placeholder.com/150" alt="Song 3">
-                    <h4>曲名 3</h4>
-                    <p>アーティスト名 C</p>
+                    <img src="./assets/img/a3.jpg" alt="曲のジャケットC">
+                    <h4>雨上がりのステップ</h4>
+                    <p>アーティスト名: Aqua Rhythm</p>
+                </div>
+                <div class="card">
+                    <img src="./assets/img/a4.jpg" alt="曲のジャケットD">
+                    <h4>風のささやき</h4>
+                    <p>アーティスト名: Zephyr</p>
                 </div>
             </div>
         </section>
@@ -69,5 +81,7 @@
     <footer>
         <p>&copy; 2025 Music Finder. All Rights Reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* 基本設定 */
+/* ===== 基本設定 ===== */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -11,13 +11,14 @@ a {
     color: inherit;
 }
 
-/* ヘッダーとナビゲーション */
+/* ===== ヘッダー ===== */
 header {
     background-color: #fff;
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* スマホ表示時に折り返す設定 */
     border-bottom: 1px solid #ddd;
 }
 
@@ -25,6 +26,11 @@ header h1 {
     margin: 0;
     font-size: 1.8rem;
     color: #2c3e50;
+}
+
+/* PC用ナビゲーション */
+header nav {
+    /* このスタイルはPC表示でのみ有効 */
 }
 
 header nav ul {
@@ -45,17 +51,62 @@ header nav a.active {
     border-bottom: 3px solid #3498db;
 }
 
+/* ハンバーガーメニューボタン (PCでは非表示) */
+#hamburger-btn {
+    display: none; /* PCでは隠す */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 24px;
+    position: relative;
+}
 
-/* メインコンテンツ */
+#hamburger-btn span {
+    display: block;
+    background-color: #333;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s; /* アニメーション効果 */
+}
+
+#hamburger-btn span:nth-child(1) { top: 0; }
+#hamburger-btn span:nth-child(2) { top: 10px; }
+#hamburger-btn span:nth-child(3) { top: 20px; }
+
+/* ===== メインコンテンツの共通スタイル ===== */
 main {
     padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-
 h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #2c3e50;
+    margin-bottom: 2rem;
 }
+
+/* カードデザイン */
+.card-container {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    padding: 1rem;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+.card img { max-width: 100%; border-radius: 5px; }
+
 
 /* Homeページ専用: 大きな検索フォーム */
 .hero {
@@ -64,108 +115,231 @@ h2 {
     background: linear-gradient(to right, #6dd5ed, #2193b0);
     border-radius: 8px;
     margin-bottom: 2rem;
-}
-
-.hero h2 {
+ }
+ 
+ .hero h2 {
     color: #fff;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-}
-
-.search-form-large {
+ }
+ 
+ .search-form-large {
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
-}
-
-.search-form-large input {
-    width: 60%;
-    padding: 1rem;
-    font-size: 1.2rem;
+    max-width: 800px; /* 幅を調整 */
+    margin-left: auto;
+    margin-right: auto;
+ }
+ 
+ .search-form-large input {
+    width: 70%; /* 幅を調整 */
+    padding: 1.2rem; /* パディングを大きく */
+    font-size: 1.1rem; /* フォントサイズを少し大きく */
     border: none;
     border-radius: 5px 0 0 5px;
-}
-
-.search-form-large button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+ }
+ 
+ .search-form-large button {
+    padding: 1.2rem 2.5rem; /* パディングを大きく */
+    font-size: 1.1rem; /* フォントサイズを少し大きく */
     border: none;
     background-color: #3498db;
     color: white;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
-}
+ }
 
-/* Homeページ: カードデザイン */
-.content-section h3 {
-    font-size: 1.5rem;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.card-container {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap; /* 画面が狭い時に折り返す */
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 1rem;
+/* ===== 検索結果表示エリアのスタイル ===== */
+.results {
+    /* テキストを中央揃えにする */
     text-align: center;
-    flex: 1; /* 横に均等に広がる */
-    min-width: 200px; /* 最小幅 */
-}
-.card img {
-    max-width: 100%;
-    border-radius: 5px;
+    
+    /* 見た目を整える */
+    margin-top: 3rem; /* 検索フォームからの余白 */
+    padding: 2rem;
+    background-color: #fff; /* 背景を白に */
+    border: 1px dashed #ddd; /* 点線の枠線 */
+    border-radius: 8px; /* 角を丸くする */
+    color: #888; /* 文字を少し薄い色に */
 }
 
 /* Song/Artistページ: 小さな検索フォーム */
 .search-form-small {
     display: flex;
     justify-content: center;
-    margin: 2rem 0;
-}
-
-.search-form-small input {
-    width: 50%;
-    padding: 0.8rem;
+    margin: 2rem auto; /* 中央寄せを維持 */
+    max-width: 600px; /* 幅を調整 */
+ }
+ 
+ .search-form-small input {
+    width: 70%; /* 幅を調整 */
+    padding: 1rem; /* パディングを大きく */
+    font-size: 1rem; /* フォントサイズを少し大きく */
     border: 1px solid #ccc;
     border-radius: 5px 0 0 5px;
-}
-.search-form-small button {
-    padding: 0.8rem 1.5rem;
+ }
+ .search-form-small button {
+    padding: 1rem 2rem; /* パディングを大きく */
+    font-size: 1rem; /* フォントサイズを少し大きく */
     border: 1px solid #3498db;
     background-color: #3498db;
     color: white;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
-}
+ }
 
-/* Profileページ */
-.profile-info {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 8px;
-    text-align: center;
-}
-.profile-info .avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-}
-
-/* フッター */
+ /* フッター */
 footer {
-    text-align: center;
+    text-align: center; /* テキストを中央揃え */
     padding: 1.5rem 5%;
     margin-top: 2rem;
     background-color: #34495e;
     color: #ecf0f1;
+ }
+
+/* ... (他の以前のスタイルは省略) ... */
+
+
+/* ===== レスポンシブ対応 (画面幅が768px以下の場合) ===== */
+@media (max-width: 768px) {
+
+    /* --- ヘッダーとナビゲーションのスマホ対応 --- */
+    header nav {
+        display: none; /* PC用のナビゲーションを隠す */
+    }
+    #hamburger-btn {
+        display: block; /* ハンバーガーボタンを表示 */
+    }
+    
+    /* ボタンが押されたとき(activeクラスが付いた時)の×印への変形 */
+    #hamburger-btn.active span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+    #hamburger-btn.active span:nth-child(2) { opacity: 0; }
+    #hamburger-btn.active span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+
+    /* アコーディオン式メニューのコンテナ */
+    #nav-menu {
+        flex-basis: 100%; /* 横幅いっぱいを使う */
+        order: 3; /* ヘッダー内の表示順を一番下にする */
+        max-height: 0; /* 初期状態では高さを0にして隠す */
+        overflow: hidden; /* はみ出した部分を隠す */
+        transition: max-height 0.4s ease-out; /* スムーズに開閉するアニメーション */
+    }
+    
+    /* メニューが開いた状態 (activeクラスが付いた時) */
+    #nav-menu.active {
+        max-height: 500px; /* 十分な高さを与えて表示 */
+        padding-top: 1.5rem; /* メニュー上部の余白 */
+    }
+
+    #nav-menu ul {
+        flex-direction: column; /* メニュー項目を縦並びに */
+        align-items: center;
+        gap: 1.5rem;
+    }
+    #nav-menu a { font-size: 1.2rem; }
+
+    /* --- 各ページのスマホ対応 --- */
+    main { padding: 1.5rem 5%; }
+    h2 { font-size: 1.8rem; }
+}
+
+/* ===== Profileページ専用のデザイン ===== */
+
+/* ログイン画面とプロフィール画面共通のカードスタイル */
+.content-box {
+    max-width: 450px; /* カードの最大幅 */
+    margin: 2rem auto; /* 上下の余白と、左右中央揃え */
+    padding: 2rem 2.5rem; /* カード内の余白 */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 影を少しつける */
+    text-align: center;
+}
+
+/* --- ログイン画面のスタイル --- */
+#login-view h2 {
+    margin-bottom: 2rem;
+}
+
+#login-view .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left; /* ラベルと入力欄は左揃えに */
+}
+
+#login-view .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+#login-view .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#login-view .btn {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#login-view .signup-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+#login-view .signup-link a {
+    color: #3498db;
+    font-weight: 600;
+}
+
+/* --- プロフィール表示画面のスタイル --- */
+#profile-view .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* 円形にする */
+    object-fit: cover; /* 画像の比率を保つ */
+    margin-bottom: 1.5rem;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#profile-view h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+#profile-view p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+#profile-view .btn {
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#profile-view .btn-secondary {
+    background-color: #bdc3c7;
+    color: #333;
+}
+
+#profile-view .btn-danger {
+    background-color: #e74c3c;
+    color: #fff;
 }

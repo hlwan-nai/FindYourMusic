@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1><a href="index.html">Music Finder</a></h1>
-        <nav>
+        <nav "nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="songs.html">Songs</a></li>
@@ -17,21 +17,79 @@
                 <li><a href="profile.html" class="active">Profile</a></li>
             </ul>
         </nav>
+
+        <button id="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
     </header>
 
     <main>
-        <h2>プロフィール</h2>
-        <div class="profile-info">
-            <img src="./assets/img/avator.png" alt="User Avatar" class="avatar">
-            <h3>ユーザー名: あなたの名前</h3>
-            <p>メールアドレス: your.email@example.com</p>
-            <p>お気に入りのジャンル: J-POP, Rock</p>
-            <button>編集する</button>
-        </div>
+        <section id="login-view">
+            <div class="login-container">
+                <h2>ログイン</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">パスワード</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn">ログイン</button>
+                </form>
+                <div class="signup-link">
+                    <p>アカウントをお持ちでないですか？ <a href="#">新規登録はこちら</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile-view" style="display:none;">
+            <h2>プロフィール</h2>
+            <div class="profile-info">
+                <img src="https://via.placeholder.com/150" alt="User Avatar" class="avatar">
+                <h3>ユーザー名: あなたの名前</h3>
+                <p>メールアドレス: your.email@example.com</p>
+                <p>お気に入りのジャンル: J-POP, Rock</p>
+                <button class="btn btn-secondary">編集する</button>
+                <button id="logout-button" class="btn btn-danger">ログアウト</button>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Music Finder. All Rights Reserved.</p>
     </footer>
+
+    <script src="./assets/js/script.js">
+        // ここからJavaScriptの世界です
+
+        // ページの中の要素（部品）を探して、変数に入れます
+        const loginForm = document.getElementById('login-form');
+        const loginView = document.getElementById('login-view');
+        const profileView = document.getElementById('profile-view');
+        const logoutButton = document.getElementById('logout-button');
+
+        // ログインフォームが「送信」された時の処理を予約します
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // ページがリロードされるのを防ぎます
+
+            // 実際のログイン処理の代わりに、表示を切り替えるだけにします
+            console.log('ログインボタンが押されました！');
+            loginView.style.display = 'none';    // ログイン画面を隠す
+            profileView.style.display = 'block'; // プロフィール画面を表示する
+        });
+
+        // ログアウトボタンが「クリック」された時の処理を予約します
+        logoutButton.addEventListener('click', function() {
+            console.log('ログアウトボタンが押されました！');
+            profileView.style.display = 'none'; // プロフィール画面を隠す
+            loginView.style.display = 'block';   // ログイン画面を表示する
+        });
+    </script>
+
 </body>
 </html>
